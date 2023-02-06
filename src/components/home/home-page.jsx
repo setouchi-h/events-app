@@ -2,13 +2,15 @@ import Image from "next/image"
 import Link from "next/link"
 
 export const HomePage = ({ data }) => (
-  <main>
+  <div className="home_body">
     {data.map((ev) => (
-      <Link key={ev.id} href={`events/${ev.id}`} passHref>
+      <Link className="card" key={ev.id} href={`events/${ev.id}`} passHref>
         <Image width={100} height={100} alt={ev.title} src={ev.image} />
-        <h2> {ev.title} </h2>
-        <p> {ev.description} </p>
+        <div className="content">
+          <h2> {ev.title} </h2>
+          <p> {ev.description} </p>
+        </div>
       </Link>
     ))}
-  </main>
+  </div>
 )
